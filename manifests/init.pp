@@ -9,12 +9,14 @@
 #
 class beng_nrpe
 (
-  $package_name = $::beng_nrpe::params::package_name,
   $service_name = $::beng_nrpe::params::service_name,
+  $baseurl = $::beng_nrpe::params::baseurl,
+  $snmp_network = $::beng_nrpe::params::snmp_network,
+  $snmp_contact = $::beng_nrpe::params::snmp_contact,
+  $snmp_location = $::beng_nrpe::params::snmp_location,
 ) inherits ::beng_nrpe::params {
 
   # validate parameters here
-  validate_string($package_name)
   validate_string($service_name)
 
   class { '::beng_nrpe::install': } ->

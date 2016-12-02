@@ -4,17 +4,9 @@
 # It sets variables according to platform.
 #
 class beng_nrpe::params {
-  case $::osfamily {
-    'Debian': {
-      $package_name = 'beng_nrpe'
-      $service_name = 'beng_nrpe'
-    }
-    'RedHat', 'Amazon': {
-      $package_name = 'beng_nrpe'
-      $service_name = 'beng_nrpe'
-    }
-    default: {
-      fail("${::operatingsystem} not supported")
-    }
-  }
+  $service_name = 'nrpe'
+  $baseurl = 'http://s404.ka.beeldengeluid.nl/nagios/depot/lin'
+  $snmp_network ='172.19.53.17'
+  $snmp_contact = 'servicedesk@beeldengeluid.nl'
+  $snmp_location = 'Beeld en Geluid'
 }

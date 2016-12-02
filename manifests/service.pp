@@ -15,4 +15,5 @@ class beng_nrpe::service {
     hasstatus  => true,
     hasrestart => true,
   }
+
 }
