@@ -9,4 +9,5 @@ class beng_nrpe::params {
   $snmp_network ='172.19.53.17'
   $snmp_contact = 'servicedesk@beeldengeluid.nl'
   $snmp_location = 'Beeld en Geluid'
+  $packages = [ 'perl-Digest-HMAC', 'perl-Digest-SHA1', 'perl-Crypt-DES', 'perl-Net-SNMP', 'vdl-nagios-common', 'vdl-nagios-plugins', 'vdl-nrpe', 'vdl-nrpe-plugin' ]
 }
