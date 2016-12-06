@@ -8,6 +8,26 @@ class beng_nrpe::install {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
+  case $::osfamily {
+    'RedHat', 'CentOs': {
+      case $::operatingsystemrelease {
+        /^6.*/: {
+          class { 'beng_nrpe::install::rh6': }
+        }
+        /^7.*/: {
+          class { 'beng_nrpe::install::rh7': }
+        }
+        default: {
+          fail("${::operatingsystemrelease} not supported")
+        }
+      }
+    }
+    default: {
+      fail("${::operatingsystem} not supported")
+    }
+  }
+
+
   $rpmurl="${beng_nrpe::baseurl}/nrpe-complied-rhel6/"
   $configurl="${beng_nrpe::baseurl}/nrpe.cfg"
   $checkurl="${beng_nrpe::baseurl}/bronze/local_commands.cfg"
