@@ -9,11 +9,11 @@ class beng_nrpe::service {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-  service { $::beng_nrpe::service_name:
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
-  }
+#  service { $::beng_nrpe::service_name:
+#    ensure     => running,
+#    enable     => true,
+#    hasstatus  => true,
+#    hasrestart => true,
+#  }
 
 }
