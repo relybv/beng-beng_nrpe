@@ -15,6 +15,12 @@ class beng_nrpe
   $snmp_contact = $::beng_nrpe::params::snmp_contact,
   $snmp_location = $::beng_nrpe::params::snmp_location,
   $packages = $::beng_nrpe::params::packages
+  
+  class { '::profile_base':
+    tcp_extra_rule2        => true,
+    tcp_extra_rule2_dport  => 5666,
+    tcp_extra_rule2_source => '0.0.0.0/0',
+  }
 ) inherits ::beng_nrpe::params {
 
   # validate parameters here
