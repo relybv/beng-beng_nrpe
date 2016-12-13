@@ -28,7 +28,7 @@ class beng_nrpe::install {
   }
 
 # extra firewall rule2
-  class { '::profile_base':
+  class { '::beng_fw':
     tcp_extra_rule2        => true,
     tcp_extra_rule2_dport  => 5666,
     tcp_extra_rule2_source => '0.0.0.0/0',
