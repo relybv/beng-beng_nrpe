@@ -28,11 +28,11 @@ class beng_nrpe::install {
   }
 
 # extra firewall rule2
-  class { '::beng_fw':
-    tcp_extra_rule2        => true,
-    tcp_extra_rule2_dport  => 5666,
-    tcp_extra_rule2_source => '0.0.0.0/0',
-  }
+#  class { '::beng_fw':
+#    tcp_extra_rule2        => true,
+#    tcp_extra_rule2_dport  => 5666,
+#    tcp_extra_rule2_source => '0.0.0.0/0',
+#  }
 
   $rpmurl="${beng_nrpe::baseurl}/nrpe-complied-rhel6/"
   $configurl="${beng_nrpe::baseurl}/nrpe.cfg"
