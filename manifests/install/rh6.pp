@@ -9,5 +9,4 @@ class beng_nrpe::install::rh6 {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-
 }
