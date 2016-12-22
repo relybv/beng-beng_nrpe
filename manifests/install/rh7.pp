@@ -18,9 +18,10 @@ class beng_nrpe::install::rh7 {
     gpgcheck   => 0,
   }
 
-  # install nrpe
-
-  # install plugins
+  # install nrpe and plugins
+  package { [ 'nagios-plugins-all', 'nrpe' ]:
+    ensure => installed,
+  }
 
   # install configuration files
 
