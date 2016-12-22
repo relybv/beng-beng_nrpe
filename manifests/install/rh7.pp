@@ -20,9 +20,36 @@ class beng_nrpe::install::rh7 {
 
   # install nrpe and plugins
   package { [ 'nagios-plugins-all', 'nrpe' ]:
-    ensure => installed,
+    ensure  => installed,
+    require => Yumrepo[ 'epel-latest-7' ],
   }
 
   # install configuration files
+  file { '/etc/nagios/nrpe.cfg':
+    source => 'puppet:///modules/beng_nrpe/nrpe.cfg',
+  }
+
+  file { '/etc/nrpe.d/local_commands.cfg':
+    source  => 'puppet:///modules/beng_nrpe/local_commands.cfg',
+    require => Package[ 'nagios-plugins-all', 'nrpe' ],
+  }
+
+  file { '/usr/lib64/nagios/plugins/utils.sh':
+    source  => 'puppet:///modules/beng_nrpe/utils.sh',
+    mode    => '0755',
+    require => Package[ 'nagios-plugins-all', 'nrpe' ],
+  }
+
+  file { '/usr/lib64/nagios/plugins/check_memory.sh':
+    source  => 'puppet:///modules/beng_nrpe/check_memory.sh',
+    mode    => '0755',
+    require => Package[ 'nagios-plugins-all', 'nrpe' ],
+  }
+
+  file { '/usr/lib64/nagios/plugins/check_uptime.sh':
+    source  => 'puppet:///modules/beng_nrpe/check_uptime.sh',
+    mode    => '0755',
+    require => Package[ 'nagios-plugins-all', 'nrpe' ],
+  }
 
 }
