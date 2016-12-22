@@ -15,6 +15,7 @@ class beng_nrpe
   $snmp_contact = $::beng_nrpe::params::snmp_contact,
   $snmp_location = $::beng_nrpe::params::snmp_location,
   $packages = $::beng_nrpe::params::packages
+    
 ) inherits ::beng_nrpe::params {
 
   # validate parameters here
