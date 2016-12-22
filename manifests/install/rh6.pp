@@ -8,10 +8,9 @@ class beng_nrpe::install::rh6 {
   if $caller_module_name != $module_name {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
-  
+
   # get baseurl  form params
   $baseurl = $::beng_nrpe::params::baseurl
-  
   $rpmurl="${baseurl}/nrpe-complied-rhel6/"
   $configurl="${baseurl}/nrpe.cfg"
   $checkurl="${baseurl}/bronze/local_commands.cfg"
@@ -58,17 +57,15 @@ class beng_nrpe::install::rh6 {
 
   exec{ 'retrieve_checks':
     command => "/usr/bin/wget -q ${checkurl} -O /usr/local/nrpe/etc/bronze/local_commands.cfg",
-    notify  => Service [ 'nrpe' ],
+    notify  => Service[ 'nrpe' ],
   }->
 
   exec{ 'retrieve_config':
     command => "/usr/bin/wget -q ${configurl} -O /usr/local/nrpe/etc/nrpe.cfg",
-    notify  => Service [ 'nrpe' ],
+    notify  => Service[ 'nrpe' ],
   }
 
   service { 'nrpe':
     ensure => running,
   }
-}
-
 }
