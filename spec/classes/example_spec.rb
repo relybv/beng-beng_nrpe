@@ -17,9 +17,9 @@ describe 'beng_nrpe' do
           it { is_expected.to contain_class('beng_nrpe') }
  
           it { is_expected.to contain_class('beng_nrpe::params') }
-          it { is_expected.to contain_class('beng_nrpe::install').that_comes_before('beng_nrpe::config') }
+          it { is_expected.to contain_class('beng_nrpe::install') }
           it { is_expected.to contain_class('beng_nrpe::config') }
-          it { is_expected.to contain_class('beng_nrpe::service').that_subscribes_to('beng_nrpe::config') }
+          it { is_expected.to contain_class('beng_nrpe::service') }
 
           it { is_expected.to contain_service('nrpe') }
 
