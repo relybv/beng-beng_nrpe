@@ -21,8 +21,8 @@ class beng_nrpe
   # validate parameters here
   validate_string($service_name)
 
-  class { '::beng_nrpe::install': } ->
-  class { '::beng_nrpe::config': } ~>
-  class { '::beng_nrpe::service': } ->
-  Class['::beng_nrpe']
+  class { '::beng_nrpe::install': }
+  -> class { '::beng_nrpe::config': }
+  ~> class { '::beng_nrpe::service': }
+  -> Class['::beng_nrpe']
 }

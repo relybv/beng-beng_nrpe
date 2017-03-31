@@ -21,20 +21,20 @@ describe 'beng_nrpe' do
           it { is_expected.to contain_class('beng_nrpe::config') }
           it { is_expected.to contain_class('beng_nrpe::service') }
 
-          it { is_expected.to contain_service('nrpe') }
+#          it { is_expected.to contain_service('nrpe') }
 
-          it { is_expected.to contain_package('perl-Crypt-DES') }
-          it { is_expected.to contain_package('perl-Digest-HMAC') }
-          it { is_expected.to contain_package('perl-Digest-SHA1') }
-          it { is_expected.to contain_package('perl-Digest-SHA1') }
-          it { is_expected.to contain_package('perl-Net-SNMP') }
-          it { is_expected.to contain_package('vdl-nagios-common') }
-          it { is_expected.to contain_package('vdl-nagios-plugins') }
-          it { is_expected.to contain_package('vdl-nrpe-plugin') }
-          it { is_expected.to contain_package('vdl-nrpe') }
+#          it { is_expected.to contain_package('perl-Crypt-DES') }
+#          it { is_expected.to contain_package('perl-Digest-HMAC') }
+#          it { is_expected.to contain_package('perl-Digest-SHA1') }
+#          it { is_expected.to contain_package('perl-Digest-SHA1') }
+#          it { is_expected.to contain_package('perl-Net-SNMP') }
+#          it { is_expected.to contain_package('vdl-nagios-common') }
+#          it { is_expected.to contain_package('vdl-nagios-plugins') }
+#          it { is_expected.to contain_package('vdl-nrpe-plugin') }
+#          it { is_expected.to contain_package('vdl-nrpe') }
 
-          it { is_expected.to contain_exec('retrieve_checks') }
-          it { is_expected.to contain_exec('retrieve_config') }
+#          it { is_expected.to contain_exec('retrieve_checks') }
+#          it { is_expected.to contain_exec('retrieve_config') }
 
         end
       end
