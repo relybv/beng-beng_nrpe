@@ -52,7 +52,7 @@ if [ -d /root/beng_nrpe ]; then
   git pull
 else
   echo "Cloning repo"
-  git clone https://github.com/relybv/dirict-beng_nrpe.git /root/beng_nrpe
+  git clone https://github.com/relybv/beng-beng_nrpe.git /root/beng_nrpe
   cd /root/beng_nrpe
 fi
 
