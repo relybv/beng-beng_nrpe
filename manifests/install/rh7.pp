@@ -26,9 +26,9 @@ class beng_nrpe::install::rh7 {
 
   # install configuration files
   file { '/etc/nagios/nrpe.cfg':
-    ensure => 'present',
-    notify => Service[$::beng_nrpe::service_name],
-    source => 'puppet:///modules/beng_nrpe/nrpe.cfg',
+    ensure  => 'present',
+    notify  => Service[$::beng_nrpe::service_name],
+    source  => 'puppet:///modules/beng_nrpe/nrpe.cfg',
     require => Package[ 'nagios-plugins-all', 'nrpe' ],
   }
 
