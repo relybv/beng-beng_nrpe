@@ -1,0 +1,14 @@
+HOSTS:
+  centos-6-x64:
+    roles:
+      - master
+    platform: centos-6-amd64
+    flavor: ha_localdisk.2c.2r.60h
+    hypervisor: openstack
+    image: "centos6-x64"
+    user: centos
+
+CONFIG:
+  log_level: info
+  type: foss
+  openstack_network: internal

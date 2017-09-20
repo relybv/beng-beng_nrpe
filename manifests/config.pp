@@ -8,4 +8,22 @@ class beng_nrpe::config {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
+  case $::osfamily {
+    'RedHat', 'CentOs': {
+      case $::operatingsystemrelease {
+        /^6.*/: {
+          class { 'beng_nrpe::config::rh6': }
+        }
+        /^7.*/: {
+          class { 'beng_nrpe::config::rh7': }
+        }
+        default: {
+          fail("${::operatingsystemrelease} not supported")
+        }
+      }
+    }
+    default: {
+      fail("${::operatingsystem} not supported")
+    }
+  }
 }
