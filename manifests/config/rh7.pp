@@ -13,34 +13,34 @@ class beng_nrpe::config::rh7 {
   file { '/etc/nagios/nrpe.cfg':
     ensure  => 'present',
     source  => 'puppet:///modules/beng_nrpe/nrpe.cfg',
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
     require => Package[ 'nagios-plugins-all', 'nrpe' ],
   }
 
   file { '/etc/nrpe.d/local_commands.cfg':
     source  => 'puppet:///modules/beng_nrpe/local_commands.cfg',
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
     require => Package[ 'nagios-plugins-all', 'nrpe' ],
   }
 
   file { '/usr/lib64/nagios/plugins/utils.sh':
     source  => 'puppet:///modules/beng_nrpe/utils.sh',
     mode    => '0755',
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
     require => Package[ 'nagios-plugins-all', 'nrpe' ],
   }
 
   file { '/usr/lib64/nagios/plugins/check_memory.sh':
     source  => 'puppet:///modules/beng_nrpe/check_memory.sh',
     mode    => '0755',
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
     require => Package[ 'nagios-plugins-all', 'nrpe' ],
   }
 
   file { '/usr/lib64/nagios/plugins/check_uptime.sh':
     source  => 'puppet:///modules/beng_nrpe/check_uptime.sh',
     mode    => '0755',
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
     require => Package[ 'nagios-plugins-all', 'nrpe' ],
   }
 }

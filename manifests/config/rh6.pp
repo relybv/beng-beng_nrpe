@@ -11,12 +11,12 @@ class beng_nrpe::config::rh6 {
 
   exec{ 'retrieve_checks':
     command => "/usr/bin/wget -q ${beng_nrpe::checkurl} -O /usr/local/nrpe/etc/bronze/local_commands.cfg",
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
   }
 
   -> exec{ 'retrieve_config':
     command => "/usr/bin/wget -q ${beng_nrpe::configurl} -O /usr/local/nrpe/etc/nrpe.cfg",
-    notify  => Service[ 'nrpe' ],
+    notify  => Service[ $::beng_nrpe::service_name ],
   }
 
 }
